@@ -1,0 +1,27 @@
+name: 'install-kittycad-cli-action'
+description: 'Install KittyCAD CLI on a Linux or Windows host'
+
+outputs:
+  version:
+    description: 'The KittyCAD CLI version that was installed'
+    value: ${{ steps.set-output.outputs.version }}
+
+runs:
+  using: 'composite'
+  steps:
+
+    - name: install cli Linux
+      id: install-kittycad-cli
+      if: runner.os == 'Linux'
+      run: sudo --preserve-env ${{ github.action_path }}/entrypoint.sh
+      shell: bash
+
+    - name: install cli Windows
+      if: runner.os == 'Windows'
+      id: install-kittycad-cli-win
+      run: sh ./entrypoint-win.sh
+      shell: bash
+
+    - id: set-output
+      run: echo "::set-output name=version::$(kittycad --version)"
+      shell: bash
