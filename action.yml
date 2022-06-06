@@ -1,5 +1,5 @@
-name: 'install-kittycad-cli-action'
-description: 'Install KittyCAD CLI on a Linux or Windows host'
+name: Install KittyCAD CLI
+description: 'Install KittyCAD CLI on a Linux or Windows host for use in Github workflows'
 branding:
   icon: box
   color: gray-dark
