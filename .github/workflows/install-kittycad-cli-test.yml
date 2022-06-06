@@ -1,0 +1,19 @@
+name: "test install cli action"
+
+on:
+    pull_request:
+
+jobs:
+  test-install-cli:
+    strategy:
+        matrix:
+          os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        id: install-kittycad
+      - name: check-install
+        run: |
+            echo "Version from output is: ${{ steps.install-kittycad.outputs.version }}"
+            kittycad --version
