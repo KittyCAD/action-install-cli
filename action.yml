@@ -19,7 +19,7 @@ runs:
     - name: install cli Windows
       if: runner.os == 'Windows'
       id: install-kittycad-cli-win
-      run: sh ./entrypoint-win.sh
+      run: $GITHUB_ACTION_PATH/entrypoint-win.sh
       shell: bash
 
     - id: set-output
