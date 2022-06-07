@@ -21,3 +21,5 @@ jobs:
 ```
 
 Make sure you [generate your `KITTYCAD_API_TOKEN`](https://kittycad.io/account) and add it to your repo secrets
+
+Be sure to look at our [other Github Actions](https://github.com/marketplace?type=actions&query=kittycad+).
