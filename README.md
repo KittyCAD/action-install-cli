@@ -1,18 +1,23 @@
 ### Install KittyCAD CLI
 
-If you want to use the KittyCAD cli directly in your actions, for example:
+Use the KittyCAD CLI in your Github workflows.
+
+Example usage:
 ```yml
-name: "install KittyCAD cli"
+name: Install KittyCAD cli and convert demo
 on:
   pull_request:
 jobs:
-  my-job:
-    runs-on: ubuntu-latest
+  convert-with-powershell:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: KittyCAD/ts-actions/install-kittycad@v0.2.2
-      - name: use KittyCAD cli
-        run: kittycad --version # do things with cli
+      - uses: KittyCAD/install-cli@v0.0.4
+      - name: convert
+        run: kittycad file convert test-file.obj test-output.stl
+        shell: powershell
         env: 
           KITTYCAD_API_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
 ```
+
+Make sure you [generate your `KITTYCAD_API_TOKEN`](https://kittycad.io/account) and add it to your repo secrets

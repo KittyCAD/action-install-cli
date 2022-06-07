@@ -17,3 +17,15 @@ jobs:
         run: |
             echo "Version from output is: ${{ steps.install-kittycad.outputs.version }}"
             kittycad --version
+
+  convert-with-powershell:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        id: install-kittycad
+      - name: convert
+        run: kittycad file convert test-file.obj test-output.stl
+        shell: powershell
+        env: 
+          KITTYCAD_API_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
