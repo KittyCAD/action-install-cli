@@ -4,9 +4,9 @@ export KITTYCAD_CLI_SHA256="1159837f9b759a6bc60c997f78f355f0f3c84cb76e42397bbd79
 mkdir "C:\Program Files\KittyCAD"
 
 # Download and check the sha256sum.
-curl -fSL "https://dl.kittycad.io/releases/cli/v0.2.12/kittycad-x86_64-pc-windows-gnu" -o "/usr/local/bin/kittycad" \
-	&& echo "${KITTYCAD_CLI_SHA256}  /usr/local/bin/kittycad" | sha256sum -c - \
-	&& chmod a+x "/usr/local/bin/kittycad"
+curl -fSL "https://dl.kittycad.io/releases/cli/v0.2.12/kittycad-x86_64-pc-windows-gnu" -o "C:\Program Files\KittyCAD\kittycad.exe" \
+	&& echo "${KITTYCAD_CLI_SHA256}  C:\Program Files\KittyCAD\kittycad.exe" | sha256sum -c - \
+	&& chmod a+x "C:\Program Files\KittyCAD\kittycad.exe"
 
 echo "kittycad cli installed!"
 
