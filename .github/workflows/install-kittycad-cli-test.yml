@@ -25,7 +25,7 @@ jobs:
       - uses: ./
         id: install-kittycad
       - name: convert
-        run: kittycad file convert test-file.obj test-output.stl
+        run: kittycad file convert --output-format=stl test-file.obj ./
         shell: powershell
         env: 
           KITTYCAD_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
