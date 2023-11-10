@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: KittyCAD/action-install-cli@v0.2.12
       - name: convert
-        run: kittycad file convert test-file.obj test-output.stl
+        run: kittycad file convert --output-format=stl test-file.obj ./
         shell: powershell
         env: 
           KITTYCAD_API_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
