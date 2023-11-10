@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: KittyCAD/action-install-cli@v0.1.1
+      - uses: KittyCAD/action-install-cli@v0.2.12
       - name: convert
         run: kittycad file convert test-file.obj test-output.stl
         shell: powershell
