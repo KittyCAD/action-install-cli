@@ -1,12 +1,12 @@
-name: Install KittyCAD CLI
-description: 'Install KittyCAD CLI on a Linux or Windows host for use in Github workflows'
+name: Install Zoo CLI
+description: 'Install Zoo CLI on a Linux or Windows host for use in Github workflows'
 branding:
   icon: box
   color: gray-dark
 
 outputs:
   version:
-    description: 'The KittyCAD CLI version that was installed'
+    description: 'The Zoo CLI version that was installed'
     value: ${{ steps.set-output.outputs.version }}
 
 runs:
@@ -14,17 +14,17 @@ runs:
   steps:
 
     - name: install cli Linux
-      id: install-kittycad-cli
+      id: install-zoo-cli
       if: runner.os == 'Linux'
       run: sudo --preserve-env ${{ github.action_path }}/entrypoint.sh
       shell: bash
 
     - name: install cli Windows
       if: runner.os == 'Windows'
-      id: install-kittycad-cli-win
+      id: install-zoo-cli-win
       run: $GITHUB_ACTION_PATH/entrypoint-win.sh
       shell: bash
 
     - id: set-output
-      run: echo "::set-output name=version::$(kittycad --version)"
+      run: echo "::set-output name=version::$(zoo --version)"
       shell: bash
