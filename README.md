@@ -1,10 +1,10 @@
-### Install KittyCAD CLI
+### Install Zoo CLI
 
-Use the KittyCAD CLI in your Github workflows.
+Use the Zoo CLI in your Github workflows.
 
 Example usage:
 ```yml
-name: Install KittyCAD cli and convert demo
+name: Install Zoo cli and convert demo
 on:
   pull_request:
 jobs:
@@ -12,14 +12,14 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: KittyCAD/action-install-cli@v0.2.16
+      - uses: Zoo/action-install-cli@v0.2.16
       - name: convert
-        run: kittycad file convert --output-format=stl test-file.obj ./
+        run: zoo file convert --output-format=stl test-file.obj ./
         shell: powershell
         env: 
-          KITTYCAD_TOKEN: ${{ secrets.KITTYCAD_TOKEN }}
+          ZOO_TOKEN: ${{ secrets.ZOO_TOKEN }}
 ```
 
-Make sure you [generate your `KITTYCAD_TOKEN`](https://kittycad.io/account) and add it to your repo secrets
+Make sure you [generate your `ZOO_TOKEN`](https://zoo.io/account) and add it to your repo secrets
 
-Be sure to look at our [other Github Actions](https://github.com/marketplace?type=actions&query=kittycad+).
+Be sure to look at our [other Github Actions](https://github.com/marketplace?type=actions&query=zoo+).
