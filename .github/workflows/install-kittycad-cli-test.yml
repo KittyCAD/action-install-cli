@@ -28,4 +28,4 @@ jobs:
         run: zoo file convert --output-format=stl test-file.obj ./
         shell: powershell
         env: 
-          KITTYCAD_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
+          ZOO_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
