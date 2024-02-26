@@ -12,20 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-        id: install-kittycad
+        id: install-zoo
       - name: check-install
         run: |
-            echo "Version from output is: ${{ steps.install-kittycad.outputs.version }}"
-            kittycad --version
+            echo "Version from output is: ${{ steps.install-zoo.outputs.version }}"
+            zoo --version
 
   convert-with-powershell:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-        id: install-kittycad
+        id: install-zoo
       - name: convert
-        run: kittycad file convert --output-format=stl test-file.obj ./
+        run: zoo file convert --output-format=stl test-file.obj ./
         shell: powershell
         env: 
-          KITTYCAD_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
+          ZOO_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
