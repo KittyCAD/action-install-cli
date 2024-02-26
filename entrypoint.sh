@@ -3,11 +3,11 @@ export KITTYCAD_CLI_SHA256="ae007cff66e210d407145645e13c4f0fc4ebf2071d6dadfb7693
 
 
 # Download and check the sha256sum.
-curl -fSL "https://dl.kittycad.io/releases/cli/v0.2.21/kittycad-x86_64-unknown-linux-musl" -o "/usr/local/bin/kittycad" \
-	&& echo "${KITTYCAD_CLI_SHA256}  /usr/local/bin/kittycad" | sha256sum -c - \
-	&& chmod a+x "/usr/local/bin/kittycad"
+curl -fSL "https://dl.zoo.dev/releases/cli/v0.2.21/zoo-x86_64-unknown-linux-musl" -o "/usr/local/bin/zoo" \
+	&& echo "${KITTYCAD_CLI_SHA256}  /usr/local/bin/zoo" | sha256sum -c - \
+	&& chmod a+x "/usr/local/bin/zoo"
 
-echo "kittycad cli installed!"
+echo "zoo cli installed!"
 
 # Run it!
-kittycad -h
+zoo -h
