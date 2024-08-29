@@ -4,10 +4,7 @@
 set -e
 
 # The latest release
-RELEASE_JSON=$(curl "https://api.github.com/repos/KittyCAD/cli/releases")
-if [ ! $? -eq 0 ]; then exit $?; fi
-
-RELEASE=$(echo "$RELEASE_JSON" | jq -r ".[0].name")
+RELEASE=$(curl -f "https://api.github.com/repos/KittyCAD/cli/releases" | jq -r ".[0].name")
 if [ ! $? -eq 0 ]; then exit $?; fi
 
 # Get the SHA256 hash of the latest release

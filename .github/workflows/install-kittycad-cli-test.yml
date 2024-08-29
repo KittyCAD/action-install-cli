@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./
+      - uses: .
         id: install-zoo
       - name: convert
         run: zoo file convert --output-format=stl test-file.obj ./
