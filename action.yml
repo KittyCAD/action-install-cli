@@ -24,7 +24,7 @@ runs:
       id: install-zoo-cli-win
       run: |
         & "$env:GITHUB_ACTION_PATH\entrypoint-win.ps1"
-      shell: bash
+      shell: pwsh
 
     - id: set-output
       run: echo "::set-output name=version::$(zoo --version)"
