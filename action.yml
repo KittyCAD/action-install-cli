@@ -31,7 +31,7 @@ runs:
       run: echo "version=$(zoo --version)" >> $GITHUB_OUTPUT
       shell: bash
 
-    - id: set-output
+    - id: set-output-win
       if: runner.os == 'Windows'
       run: |
         # Run the installed CLI to get its version and write it to the GITHUB_OUTPUT file.
