@@ -22,8 +22,9 @@ runs:
     - name: install cli Windows
       if: runner.os == 'Windows'
       id: install-zoo-cli-win
-      run: ${{ github.action_path }}\entrypoint-win.sh
-      shell: pwsh
+      run: |
+        & "$env:GITHUB_ACTION_PATH\entrypoint-win.ps1"
+      shell: bash
 
     - id: set-output
       run: echo "::set-output name=version::$(zoo --version)"
