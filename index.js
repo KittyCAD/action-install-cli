@@ -24,7 +24,10 @@ async function run() {
       releaseBinaryName = "zoo-x86_64-unknown-linux-musl";
       binaryPath = path.join(installDir, binaryName);
     } else {
-      throw new Error(`Unsupported platform: ${process.platform}`);
+      installDir = "/usr/local/bin";
+      binaryName = "zoo";
+      releaseBinaryName = "zoo-aarch64-apple-darwin";
+      binaryPath = path.join(installDir, binaryName);
     }
 
     // Create the installation directory if it doesn't exist.
@@ -56,8 +59,6 @@ async function run() {
     // Construct download URLs.
     const downloadUrl = `https://github.com/KittyCAD/cli/releases/download/${release}/${releaseBinaryName}`;
     const sha256Url = `${downloadUrl}.sha256`;
-
-    core.info(`Fetching: ${sha256Url}`);
 
     // Fetch expected SHA256 hash.
     const sha256Response = await fetch(sha256Url);
