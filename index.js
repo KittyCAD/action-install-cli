@@ -21,7 +21,7 @@ async function run() {
       // We install into /usr/local/bin; ensure the runner has permissions.
       installDir = "/usr/local/bin";
       binaryName = "zoo";
-      releaseBinaryName = "zoo-x86_64-unknown-linux-gnu";
+      releaseBinaryName = " zoo-x86_64-unknown-linux-musl";
       binaryPath = path.join(installDir, binaryName);
     } else {
       throw new Error(`Unsupported platform: ${process.platform}`);
