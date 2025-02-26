@@ -27,5 +27,14 @@ runs:
       shell: pwsh
 
     - id: set-output
-      run: echo "::set-output name=version::$(zoo --version)"
+      if: runner.os == 'Linux'
+      run: echo "version=$(zoo --version)" >> $GITHUB_OUTPUT
       shell: bash
+
+    - id: set-output
+      if: runner.os == 'Windows'
+      run: |
+        # Run the installed CLI to get its version and write it to the GITHUB_OUTPUT file.
+        $version = & zoo --version
+        Add-Content -Path $env:GITHUB_OUTPUT -Value "version=$version"
+      shell: pwsh
