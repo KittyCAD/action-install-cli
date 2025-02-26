@@ -22,7 +22,7 @@ runs:
     - name: install cli Windows
       if: runner.os == 'Windows'
       id: install-zoo-cli-win
-      run: $GITHUB_ACTION_PATH/entrypoint-win.sh
+      run: $GITHUB_ACTION_PATH\entrypoint-win.sh
       shell: pwsh
 
     - id: set-output
