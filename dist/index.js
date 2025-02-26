@@ -31597,6 +31597,8 @@ async function run() {
     const downloadUrl = `https://github.com/KittyCAD/cli/releases/download/${release}/${releaseBinaryName}`;
     const sha256Url = `${downloadUrl}.sha256`;
 
+    core.info(`Fetching: ${sha256Url}`);
+
     // Fetch expected SHA256 hash.
     const sha256Response = await fetch(sha256Url);
     if (!sha256Response.ok) {
