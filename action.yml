@@ -6,4 +6,4 @@ outputs:
     description: "The Zoo CLI version that was installed"
 runs:
   using: "node20"
-  main: "index.js"
+  main: "dist/index.js"
