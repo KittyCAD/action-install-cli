@@ -1,40 +1,9 @@
 name: Install Zoo CLI
-description: 'Install Zoo CLI on a Linux or Windows host for use in Github workflows'
-branding:
-  icon: box
-  color: gray-dark
-
+description: "Install Zoo CLI on a Linux or Windows host for use in GitHub workflows"
+inputs: {}
 outputs:
   version:
-    description: 'The Zoo CLI version that was installed'
-    value: ${{ steps.set-output.outputs.version }}
-
+    description: "The Zoo CLI version that was installed"
 runs:
-  using: 'composite'
-  steps:
-
-    - name: install cli Linux
-      id: install-zoo-cli
-      if: runner.os == 'Linux'
-      run: sudo --preserve-env ${{ github.action_path }}/entrypoint.sh
-      shell: bash
-
-    - name: install cli Windows
-      if: runner.os == 'Windows'
-      id: install-zoo-cli-win
-      run: |
-        & "$env:GITHUB_ACTION_PATH\entrypoint-win.ps1"
-      shell: pwsh
-
-    - id: set-output
-      if: runner.os == 'Linux'
-      run: echo "version=$(zoo --version)" >> $GITHUB_OUTPUT
-      shell: bash
-
-    - id: set-output-win
-      if: runner.os == 'Windows'
-      run: |
-        # Run the installed CLI to get its version and write it to the GITHUB_OUTPUT file.
-        $version = & zoo --version
-        Add-Content -Path $env:GITHUB_OUTPUT -Value "version=$version"
-      shell: pwsh
+  using: "node20"
+  main: "index.js"
