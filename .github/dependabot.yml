@@ -9,7 +9,6 @@ updates:
   schedule:
     interval: weekly
     day: saturday
-    time: '03:00'
     timezone: America/Los_Angeles
   open-pull-requests-limit: 5
   groups:
@@ -45,3 +44,9 @@ updates:
       update-types:
       - minor
       - patch
+  cooldown:
+    default-days: 7
+    exclude:
+    - '*kcl*'
+    - '*zoo*'
+    - '*kittycad*'
