@@ -10,7 +10,7 @@ jobs:
           os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: ./
         id: install-zoo
       - name: check-install
@@ -21,11 +21,12 @@ jobs:
   convert-with-powershell:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: ./
         id: install-zoo
       - name: convert
         run: zoo file convert --output-format=stl test-file.obj ./
         shell: powershell
         env: 
-          ZOO_TOKEN: ${{ secrets.KITTYCAD_API_TOKEN }}
+          ZOO_API_TOKEN: ${{ secrets.ZOO_API_TOKEN }}
+          ZOO_HOST: https://api.dev.zoo.dev
