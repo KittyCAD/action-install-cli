@@ -10,7 +10,7 @@ jobs:
           os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: ./
         id: install-zoo
       - name: check-install
@@ -21,7 +21,7 @@ jobs:
   convert-with-powershell:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - uses: ./
         id: install-zoo
       - name: convert
