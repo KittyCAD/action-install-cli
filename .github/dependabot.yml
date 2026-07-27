@@ -15,38 +15,38 @@ updates:
     security:
       applies-to: security-updates
       exclude-patterns:
+      - ezpz
+      - kcl*
       - kittycad*
       update-types:
       - minor
       - patch
-    security-major:
-      applies-to: security-updates
-      exclude-patterns:
-      - kittycad*
-      update-types:
-      - major
     patch:
       applies-to: version-updates
       exclude-patterns:
+      - ezpz
+      - kcl*
       - kittycad*
       update-types:
       - patch
-    major:
-      applies-to: version-updates
-      exclude-patterns:
-      - kittycad*
-      update-types:
-      - major
     minor:
       applies-to: version-updates
       exclude-patterns:
+      - ezpz
+      - kcl*
       - kittycad*
       update-types:
       - minor
       - patch
+    kcl:
+      applies-to: version-updates
+      patterns:
+      - ezpz
+      - kcl*
   cooldown:
     default-days: 7
     exclude:
+    - ezpz
     - '*kcl*'
     - '*zoo*'
     - '*kittycad*'
